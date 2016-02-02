@@ -1,0 +1,185 @@
+body {
+  background: #D7F7FE;
+  font-family: "Nunito", sans-serif;
+  color: #222;
+}
+* {
+  -webkit-transition: all .65s ease;
+  transition: all .65s ease;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 53em;
+  margin: 0 auto;
+}
+.soda_board {
+  border: 3px;
+  border-radius: 2px;
+  border-color: #ffffff;
+  background-color: inherit;;
+}
+.secret {
+  opacity: 0;
+}
+.header {
+  background: #FF6067;
+  color: white;
+  padding: 0.625em;
+}
+.header .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.header .game_name, .header .tagline {
+  font-weight: 400;
+}
+@media (max-width: 700px) {
+  .header .game_name, .header .tagline {
+    width: 100%;
+    text-align: center;
+  }
+  .header .game_name {
+    margin: 0;
+  }
+}
+
+.game_name, h1, h2, h3 {
+  font-family: "Righteous", sans-serif;
+  font-size: 2.625em;
+  color: #024654;
+}
+
+h3 {
+  font-size: 2em;
+  color: #f7686e;
+}
+
+.game_name {
+  color: white;
+}
+
+.tagline {
+  font-size: 1.125em;
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .main-nav ul {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .main-nav ul a {
+    position: absolute;
+    left: -99999em;
+  }
+  .main-nav ul.open li {
+    width: 100%;
+  }
+  .main-nav ul.open li.mobile-button a {
+    background: #fbf78d;
+    color: #0e3447;
+  }
+  .main-nav ul.open a {
+    position: static;
+  }
+  .main-nav ul .mobile-button a {
+    position: static;
+  }
+  .main-nav a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .full-bleed {
+    min-height: 175px;
+  }
+}
+
+.columns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.columns .item {
+  padding: 1.5625em;
+  max-width: 47%;
+  background: #b1dbf0;
+  color: #1A577F;
+  border-bottom: 5px solid #F7EE1A;
+  margin-bottom: 2.1875em;
+  position: relative;
+  overflow: hidden;
+}
+.columns .item .item-title {
+  color: #011d23;
+  font-size: 24px;
+  margin: 0 0 5px 0;
+  font-family: "Righteous", sans-serif;
+}
+.columns .item .item-image {
+  max-width: 100%;
+}
+
+@media (max-width: 660px) {
+  .columns .item {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 770px) {
+  .columns.thirds .item {
+    max-width: 48%;
+  }
+}
+@media (max-width: 770px) and (max-width: 660px) {
+  .columns.thirds .item {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.footer {
+  background: #FF6067;
+  color: white;
+  padding: 0.9375em;
+  text-align: center;
+  font-size: 0.8125em;
+}
+.footer a {
+  color: #F7EE1A;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
