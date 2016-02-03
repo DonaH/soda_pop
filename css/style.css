@@ -19,7 +19,7 @@ body {
   background-color: inherit;;
 }
 .secret {
-  opacity: 0;
+  opacity: 0.2;
 }
 .header {
   background: #FF6067;
