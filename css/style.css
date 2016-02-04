@@ -25,7 +25,7 @@ span {
   background-color: inherit;;
 }
 .secret {
-  opacity: 0.15;
+  opacity: 0;
 }
 .header {
   background: #FF6067;
