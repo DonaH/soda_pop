@@ -1,9 +1,11 @@
 var guesses = []
 var winCounter = 0
-var scoreKeeper = 0
+var scoreKeeper1 = 0
+var scoreKeeper2 = 0
 var timeKeeper = 60
 var cleanBoard
 var timeStart
+var playerTurn = 0
 var colorBottles = ['assets/soda_yellow.jpg', 'assets/soda_green.jpg', 'assets/soda_brown.jpg',
 'assets/soda_blue.jpg', 'assets/soda_orange.jpg', 'assets/soda_grey.jpg',
 'assets/soda_red.jpg', 'assets/soda_purple.jpg', 'assets/soda_yellow.jpg', 'assets/soda_green.jpg',
@@ -55,21 +57,38 @@ $('.bottle').click(function(){
     console.log($(guesses[1]).data('color'))
 
     if(guesses.length === 2) {
+      playerTurn += 1
       if(($(guesses[0]).data('color') == $(guesses[1]).data('color')) && ($('.timer')!= 0)){
         console.log("they match")
         $(guesses[0]).off('click')
         $(guesses[1]).off('click')
-        guesses = []
 
-        scoreKeeper += 100
-        console.log(scoreKeeper)
-        $('.score').text(scoreKeeper)
+        if (playerTurn % 2 === 0) {
+          scoreKeeper2 += 100
+          console.log(scoreKeeper2)
+          $('.score2').text(scoreKeeper2)
+
+        } else {
+          scoreKeeper1 += 100
+          console.log(scoreKeeper1)
+          $('.score1').text(scoreKeeper1)
+        }
 
         winCounter += 1
-        if (winCounter == 8) {
-          alert('Congratulations!!! You win!')
+        console.log(winCounter)
+        var test="testing"
+
+        if ((winCounter === 8) && (scoreKeeper1 > scoreKeeper2)) {
+          alert('Congratulations Player 1!!! You win!')
           location.reload()
+        } else {
+          if ((winCounter === 8) && (scoreKeeper2 > scoreKeeper1)) {
+            alert('Congratulations Player 2!!! You win!')
+            location.reload()
+          }
         }
+        guesses = []
+
     } else {
         console.log("they don't match")
         $(guesses[0]).delay(300).queue(function(){
@@ -84,14 +103,3 @@ $('.bottle').click(function(){
     }
   }
 })
-//
-// function reset() {
-//   guesses = []
-//   $('.score').text(0)
-//   $('.timer').text(60)
-//   scoreKeeper = 0
-//   //clearInterval(timeStart)
-//   timeKeeper = 60
-//   cleanBoard = ($('.bottle').addClass('secret'))
-//   winCounter = 0
-// }
