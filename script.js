@@ -8,11 +8,16 @@ var colorBottles = ['assets/soda_yellow.jpg', 'assets/soda_green.jpg', 'assets/s
 'assets/soda_blue.jpg', 'assets/soda_orange.jpg', 'assets/soda_grey.jpg',
 'assets/soda_red.jpg', 'assets/soda_purple.jpg', 'assets/soda_yellow.jpg', 'assets/soda_green.jpg',
 'assets/soda_brown.jpg','assets/soda_blue.jpg','assets/soda_orange.jpg','assets/soda_grey.jpg','assets/soda_red.jpg','assets/soda_purple.jpg']
+var soda = $('.soda_board')
+var bottom = $('footer')
 
-$('.bottle').click(false)
+soda.hide()
+bottom.hide()
 
 $('#new_game').on('click', function(){
   setInterval('decrementTimer()', 1000)
+  soda.show()
+  bottom.show()
   shuffleBottles()
 })
 
