@@ -8,8 +8,14 @@ body {
   transition: all .65s ease;
   box-sizing: border-box;
 }
+span {
+  display: inline-block;
+  border-style: solid;
+  border-color: #fff;
+  border-radius: 15px;
+}
 .container {
-  max-width: 53em;
+  max-width: 55em;
   margin: 0 auto;
 }
 .soda_board {
@@ -19,7 +25,7 @@ body {
   background-color: inherit;;
 }
 .secret {
-  opacity: 0.2;
+  opacity: 0.15;
 }
 .header {
   background: #FF6067;
@@ -79,6 +85,7 @@ h3 {
 .tagline {
   font-size: 1.125em;
   font-style: italic;
+  border: 0;
 }
 
 @media (max-width: 700px) {

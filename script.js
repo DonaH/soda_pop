@@ -1,32 +1,44 @@
 var guesses = []
 var winCounter = 0
 var scoreKeeper = 0
-var timeKeeper = 60
+var timeKeeper = 40
+var cleanBoard
+var timeStart
+var colorBottles = ['assets/soda_yellow.jpg', 'assets/soda_green.jpg', 'assets/brown.jpg',
+'assets/soda_blue.jpg', 'assets/soda_orange.jpg', 'assets/soda_grey.jpg',
+'assets/soda_red.jpg', 'assets/soda_purple.jpg', 'assets/soda_yellow.jpg', 'assets/soda_green.jpg', 'assets/brown.jpg',
+'assets/soda_blue.jpg', 'assets/soda_orange.jpg', 'assets/soda_grey.jpg',
+'assets/soda_red.jpg', 'assets/soda_purple.jpg']
 
-//game Initialize
+// $('#new_game').on('click', game())
 
-var timeStart = window.setInterval(decrementTimer, 1000)
+// <div class="container">
+//   <div class="soda_board">
+//     <span><img class="bottle secret" data-color="soda_yellow" src="assets/soda_yellow.jpg" /></span>
+
+$('#new_game').on('click', function(){
+  setInterval('decrementTimer()', 1000)
+})
 
 function decrementTimer() {
-  if (timeKeeper > 0 && timeKeeper < 61) {
+  if (timeKeeper > 0 && timeKeeper < 41) {
     timeKeeper -= 1
     $('.timer').text(timeKeeper)
-    console.log(timeKeeper)
+    //console.log(timeKeeper)
   } else {
-      clearInterval(timeStart)
+      if (winCounter === 8) {
+        reset()
+      }
     }
 }
-//$('#new_game').click(decrementTimer())
-//setInterval(decrementTimer, 1000)
 
-//start guessing the bottles
 $('.bottle').click(function(){
   $(this).removeClass('secret')
 
     guesses.push(this)
     console.log(guesses)
-    console.log($(guesses[0]).data('color'))
-    console.log($(guesses[1]).data('color'))
+    //console.log($(guesses[0]).data('color'))
+    //console.log($(guesses[1]).data('color'))
 
     if (guesses.length === 2) {
       if($(guesses[0]).data('color') === $(guesses[1]).data('color')){
@@ -35,28 +47,39 @@ $('.bottle').click(function(){
         $(guesses[1]).off('click')
         guesses = []
 
-        //add score
         scoreKeeper += 100
         console.log(scoreKeeper)
         $('.score').text(scoreKeeper)
 
-        //increment the winCounter by 1 until wholeboard is matched
         winCounter += 1
-          if (winCounter === 8) {
-            alert('Congratulations!!! You win!')
-            winCounter === 0
-            clearInterval(timeStart)
-          }
+        if (winCounter === 8) {
+          alert('Congratulations!!! You win!')
+          reset()
+          timeKeeper = 0
+        }
+      }
+      else {
+        console.log("they don't match")
+        $(guesses[0]).delay(300).queue(function(){
+          $(this).addClass('secret')
+        })
+        $(guesses[1]).delay(300).queue(function(){
+          $(this).addClass('secret')
+        })
+        guesses = []
+    }
+  }
+})
 
-        } else {
-         console.log("they don't match")
-         $(guesses[0]).delay(300).queue(function(){
-           $(this).addClass('secret')
-         })
-         $(guesses[1]).delay(300).queue(function(){
-           $(this).addClass('secret')
-         })
-         guesses = []
-       }
-     }
-   })
+function reset() {
+  guesses = []
+  $('.score').text(0)
+  $('.timer').text(40)
+  scoreKeeper = 0
+  clearInterval(timeStart)
+  timeKeeper = 40
+  cleanBoard = ($('.bottle').addClass('secret'))
+  winCounter = 0
+  //$('#new_game').on('click', game())
+  location.reload()
+}
