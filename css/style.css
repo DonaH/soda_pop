@@ -13,6 +13,18 @@ span {
   border-style: solid;
   border-color: #fff;
   border-radius: 15px;
+  font-family:
+}
+span.player1 {
+  display: inline-block;
+  border: 0;
+}
+span.player2 {
+  display: inline-block;
+  border: 0;
+}
+.button {
+  display: inline-block;
 }
 .container {
   max-width: 55em;
@@ -25,7 +37,7 @@ span {
   background-color: inherit;;
 }
 .secret {
-  opacity: 0.2;
+  opacity: 0;
 }
 .header {
   background: #FF6067;

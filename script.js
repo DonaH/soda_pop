@@ -1,18 +1,25 @@
 var guesses = []
 var winCounter = 0
-var scoreKeeper = 0
+var scoreKeeper1 = 0
+var scoreKeeper2 = 0
 var timeKeeper = 60
 var cleanBoard
 var timeStart
+var playerTurn = 0
 var colorBottles = ['assets/soda_yellow.jpg', 'assets/soda_green.jpg', 'assets/soda_brown.jpg',
 'assets/soda_blue.jpg', 'assets/soda_orange.jpg', 'assets/soda_grey.jpg',
 'assets/soda_red.jpg', 'assets/soda_purple.jpg', 'assets/soda_yellow.jpg', 'assets/soda_green.jpg',
 'assets/soda_brown.jpg','assets/soda_blue.jpg','assets/soda_orange.jpg','assets/soda_grey.jpg','assets/soda_red.jpg','assets/soda_purple.jpg']
+var soda = $('.soda_board')
+var bottom = $('footer')
 
-$('.bottle').click(false)
+soda.hide()
+bottom.hide()
 
 $('#new_game').on('click', function(){
-  setInterval('decrementTimer()', 1000)
+  setInterval(decrementTimer, 1000)
+  soda.show()
+  bottom.show()
   shuffleBottles()
 })
 
@@ -34,59 +41,76 @@ function decrementTimer() {
   if (timeKeeper > 0 && timeKeeper < 61) {
     timeKeeper -= 1
     $('.timer').text(timeKeeper)
+    if(($('.soda_board img').not('.secret').length == 16) && (scoreKeeper1 == scoreKeeper2)) {
+        alert("It's a tie!")
+        location.reload()
+      } else {
+        if (($('.soda_board img').not('.secret').length == 16) && (scoreKeeper1 >scoreKeeper2)) {
+          alert('Congratulations Player 1!!! You win!')
+          location.reload()
+        } else {
+          if (($('.soda_board img').not('.secret').length == 16) && (scoreKeeper2 >scoreKeeper1)) {
+            alert('Congratulations Player 2!!! You win!')
+            location.reload()
+          }
+        }
+      }
+
     //console.log(timeKeeper)
   } else {
-    alert("Time's up! Better luck next time.")
-    location.reload()
+    if (scoreKeeper1 == scoreKeeper2) {
+      alert("It's a tie!")
+      location.reload()
+    } else {
+      if (scoreKeeper1 > scoreKeeper2) {
+        alert('Congratulations Player 1!!! You win!')
+        location.reload()
+      } else {
+        alert('Congratulations Player 2!!! You win!')
+        location.reload()
+      }
+    }
     }
 }
 
 $('.bottle').click(function(){
   $(this).removeClass('secret')
 
-    guesses.push(this)
-    //console.log(guesses)
+  guesses.push(this)
+    console.log(guesses)
     console.log($(guesses[0]).data('color'))
     console.log($(guesses[1]).data('color'))
 
     if(guesses.length === 2) {
-      if(($(guesses[0]).data('color') == $(guesses[1]).data('color')) && ($('.timer')!= 0)){
+      playerTurn += 1
+      if($(guesses[0]).data('color') === $(guesses[1]).data('color')){
         console.log("they match")
         $(guesses[0]).off('click')
         $(guesses[1]).off('click')
+
         guesses = []
 
-        scoreKeeper += 100
-        console.log(scoreKeeper)
-        $('.score').text(scoreKeeper)
+        if (playerTurn % 2 === 0) {
+          scoreKeeper2 += 100
+          console.log(scoreKeeper2)
+          $('.score2').text(scoreKeeper2)
 
-        winCounter += 1
-        if (winCounter == 8) {
-          alert('Congratulations!!! You win!')
-          location.reload()
+        } else {
+          scoreKeeper1 += 100
+          console.log(scoreKeeper1)
+          $('.score1').text(scoreKeeper1)
         }
-    } else {
+
+      } else {
         console.log("they don't match")
-        $(guesses[0]).delay(300).queue(function(){
+        $(guesses[0]).delay(100).queue(function(){
           $(this).addClass('secret')
-          console.log(this)
         })
-          $(guesses[1]).delay(300).queue(function(){
-            $(this).addClass('secret')
-            console.log(this)
-            guesses = []
+        $(guesses[1]).delay(100).queue(function(){
+          $(this).addClass('secret')
+
+        guesses = []
         })
-    }
+      }
   }
 })
-//
-// function reset() {
-//   guesses = []
-//   $('.score').text(0)
-//   $('.timer').text(60)
-//   scoreKeeper = 0
-//   //clearInterval(timeStart)
-//   timeKeeper = 60
-//   cleanBoard = ($('.bottle').addClass('secret'))
-//   winCounter = 0
-// }
