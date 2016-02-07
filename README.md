@@ -1,4 +1,4 @@
-## This is a Macthing Soda Pop Game based on jquery.
+## This is a Macthing Soda Pop Game based on html, css, & jquery.
 
 ###Instructions:
 * Download all files.
@@ -10,14 +10,13 @@
 * Responsive design.
 
 ###User Story
-* I'd like the game to be fun
-* I'd it colorful
-* I'd like it to be intuitive
+* I'd like the game to be fun.
+* I'd it to be colorful.
+* I'd like it to be intuitive.
 
 ###Future Add on
-* Sound would be nice
-* Soda Bottles with logos
-* 3D soda bottles (maybe)
-* Better buttons
-
-
+* Sound would be nice.
+* Soda Bottles with recognizable logos.
+* 3D soda bottles (maybe).
+* Better buttons.
+* Animated page with a single soda bottle. When the soda goes all the way down to the bottom, a loud BURP as a reward!
