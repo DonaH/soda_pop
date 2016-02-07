@@ -74,7 +74,7 @@ function decrementTimer() {
 }
 
 $('.bottle').click(function() {
-  $(this).toggleClass('secret') //unveil the bottles
+  $(this).removeClass('secret') //unveil the bottles
 
   guesses.push(this) //push each click selection into array
 
