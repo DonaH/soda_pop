@@ -76,6 +76,20 @@ function decrementTimer() {
 $('.bottle').click(function() {
   $(this).removeClass('secret') //unveil the bottles
 
+  // play sound when bottle is clicked
+  // function playSound('../assets/light_pop.wav') {
+  //   var sound = document.getElementById("pop").innerHTML=<embed src=\;
+  //   audio.play()
+  // }
+
+  //
+  // function playSound(soundfile) {
+  // document.getElementById("dummy").innerHTML=
+  // "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+  // }
+
+
+
   guesses.push(this) //push each click selection into array
 
     if(guesses.length >= 2) { // minimum value of 2 arrays

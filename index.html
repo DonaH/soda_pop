@@ -2,6 +2,7 @@
 <html>
 <head>
   <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
@@ -12,6 +13,7 @@
       <span class="tagline">60 seconds to match most soda pops!<br />Player 1 goes first.</span>
     </div>
   </header>
+  <audio id="sound" src="assets/light_pop.wav"></audio>
   <div class="container">
     <div class="columns">
         <div>Time left: </div>
@@ -22,29 +24,36 @@
 
         <div>Player 2 Score: </div>
         <div class="score2">0</div>
-        <div><input type="button" id="new_game" value="New game!"></div>
-        </div>
-
+        <div><input class="button-secondary pure-button" type="button" id="new_game" value="New game!"></div>
     </div>
+
+  </div>
+
+<!--z
+    <audio id="sound1" src="light_pop.wav" preload="auto"></audio>
+      <button onclick="document.getElementById('sound1').play();">Play
+      it</button> -->
+
+
   </div>
     <div class="container">
       <div class="soda_board">
-        <span><img class="bottle secret" data-color="soda_yellow-1" src="assets/soda_yellow.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_yellow-2" src="assets/soda_yellow.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_green-1" src="assets/soda_green.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_green-2" src="assets/soda_green.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_brown-1" src="assets/soda_brown.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_brown-2" src="assets/soda_brown.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_orange-1" src="assets/soda_orange.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_orange-2" src="assets/soda_orange.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_blue-1" src="assets/soda_blue.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_blue-2" src="assets/soda_blue.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_grey-1" src="assets/soda_grey.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_grey-2" src="assets/soda_grey.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_purple-1" src="assets/soda_purple.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_purple-2" src="assets/soda_purple.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_red-1" src="assets/soda_red.jpg" /></span>
-        <span><img class="bottle secret" data-color="soda_red-2" src="assets/soda_red.jpg" /></span>
+        <span><img class="bottle secret" data-color="soda_yellow-1" src="assets/soda_yellow.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_yellow-2" src="assets/soda_yellow.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_green-1" src="assets/soda_green.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_green-2" src="assets/soda_green.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_brown-1" src="assets/soda_brown.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_brown-2" src="assets/soda_brown.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_orange-1" src="assets/soda_orange.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_orange-2" src="assets/soda_orange.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_blue-1" src="assets/soda_blue.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_blue-2" src="assets/soda_blue.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_grey-1" src="assets/soda_grey.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_grey-2" src="assets/soda_grey.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_purple-1" src="assets/soda_purple.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_purple-2" src="assets/soda_purple.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_red-1" src="assets/soda_red.jpg" ></span>
+        <span><img class="bottle secret" data-color="soda_red-2" src="assets/soda_red.jpg" ></span>
       </div>
     </div>
 
