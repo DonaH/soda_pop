@@ -30,7 +30,7 @@ span {
   display: inline-block;
 }
 .container {
-  max-width: 80em;
+  max-width: 60em;
   margin: 0 auto;
 }
 .soda_board {
@@ -43,6 +43,11 @@ span {
   opacity: 0;
 }
 .img {
+  width: 100px;
+  height: 297px;
+}
+
+#soda{
   width: 100px;
   height: 297px;
 }
