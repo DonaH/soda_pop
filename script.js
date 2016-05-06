@@ -17,7 +17,8 @@ soda.hide()
 bottom.hide()
 
 $('#new_game').on('click', function(){
-  setInterval(decrementTimer, 1000) //onclick, start the game
+  setInterval(decrementTimer, 1000)
+  timeKeeper = 60 //onclick, start or restart the game
   soda.show()
   bottom.show()
   shuffleBottles()
