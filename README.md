@@ -15,8 +15,8 @@
 * I'd like it to be intuitive.
 
 ###Future Add on
-* Sound would be nice.
+* Sound would be nice. :heavy_check_mark:
 * Soda Bottles with recognizable logos.
 * 3D soda bottles (maybe).
-* Better buttons.
+* Better buttons. :heavy_check_mark:
 * Animated page with a single soda bottle. When the soda goes all the way down to the bottom, a loud BURP as a reward!
